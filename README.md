@@ -632,7 +632,7 @@ Creating a Manifest
 
 To make it easier to push updates to Pivotal Cloud Foundry, let’s create a manifest file.
 
-1.  Create a file called manifest.yml and put it in the same folder that contains the pom.xml file.
+1.  Create a file called manifest.yml and put it in the same folder that contains the build.gradle file.
 
 2.  Edit the contents of this file to contain the following:
 
