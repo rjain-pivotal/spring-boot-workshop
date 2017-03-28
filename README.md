@@ -13,6 +13,18 @@ Prerequisites
 
 -   Git CLI for [Windows](https://github.com/git-for-windows/git/releases/download/v2.9.0.windows.1/Git-2.9.0-64-bit.exe) or Git from [github.com](https://desktop.github.com/) (Optional)
 
+Big Picture
+===================
+In this workshop we are going to do the following
+
+- Create a Spring Boot app using Spring Initializr
+- Use JPA, disable Hibernate and use Redis
+- Create a Domain Object, CRUD Repository and Controller with REST endpoints
+- Run it locally
+- Run it in Cloud Foundry with Redis Marketplace service
+- Enable Actuator endpoints
+
+
 Part 1: Spring Boot
 ===================
 
@@ -935,5 +947,3 @@ Let’s make a few minor changes to our application to expose additional details
     Notice the additional entries for Git and Spring Boot information where you can view the JSON
 
     Note that currently some information is only shown if the Git information has been included.
-
-
