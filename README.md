@@ -477,7 +477,7 @@ Before we deploy to cloud foundry there are a few things that need to occur.
 
 2.  Set the API target for the CLI: (this information will be provided to you in the workshop)
 
-        $ cf api https://api.sys.cloud.rick-ross.com --skip-ssl-validation
+        $ cf api https://api.run.haas-99.pez.pivotal.io --skip-ssl-validation
 
 3.  Login to Pivotal Cloudfoundry:
 
@@ -504,13 +504,13 @@ Before we deploy to cloud foundry there are a few things that need to occur.
 6.  Push the application using the following command line
 
         $ cf push spring-person --no-start --random-route -p build/libs/Spring-Person-0.0.1-SNAPSHOT.jar
-        Creating app spring-person in org pivotal / space development as rross@pivotal.io...
+        Creating app spring-person in org pivotal / space development as instructor
         OK
 
-        Creating route spring-person-commemoratory-isogeny.app.cloud.rick-ross.com...
+        Creating route spring-person-commemoratory-isogeny....
         OK
 
-        Binding spring-person-commemoratory-isogeny.app.cloud.rick-ross.com to spring-person...
+        Binding spring-person-commemoratory-isogeny.app.cloud....
         OK
 
         Uploading spring-person...
@@ -524,7 +524,7 @@ Before we deploy to cloud foundry there are a few things that need to occur.
 7.  Browse the Marketplace
 
         $ cf marketplace
-        Getting services from marketplace in org pivotal / space development as rross@pivotal.io...
+        Getting services from marketplace in org pivotal / space development as instructor...
         OK
 
         service                       plans                     description
@@ -554,7 +554,7 @@ Before we deploy to cloud foundry there are a few things that need to occur.
 10. Start the application
 
         $ cf start spring-person
-        Starting app spring-person in org pivotal / space development as rross@pivotal.io...
+        Starting app spring-person in org pivotal / space development as instructor
         Downloading binary_buildpack...
         Downloading ruby_buildpack...
         Downloading python_buildpack...
@@ -607,13 +607,13 @@ Before we deploy to cloud foundry there are a few things that need to occur.
 
         App spring-person was started using this command `CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-2.0.2_RELEASE -memorySizes=metaspace:64m..,stack:228k.. -memoryWeights=heap:65,metaspace:10,native:15,stack:10 -memoryInitials=heap:100%,metaspace:100% -stackThreads=300 -totMemory=$MEMORY_LIMIT) && JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh $CALCULATED_MEMORY" && SERVER_PORT=$PORT eval exec $PWD/.java-buildpack/open_jdk_jre/bin/java $JAVA_OPTS -cp $PWD/. org.springframework.boot.loader.JarLauncher`
 
-        Showing health and status for app spring-person in org pivotal / space development as rross@pivotal.io...
+        Showing health and status for app spring-person in org pivotal / space development as instructor..
         OK
 
         requested state: started
         instances: 1/1
         usage: 1G x 1 instances
-        urls: spring-person-heterochromatic-eelgrass.app.cloud.rick-ross.com
+        urls: spring-person-heterochromatic-eelgrass.haas-99.pez.pivotal.io
         last uploaded: Mon Feb 13 21:41:03 UTC 2017
         stack: cflinuxfs2
         buildpack: java-buildpack=v3.10-offline-https://github.com/cloudfoundry/java-buildpack.git#193d6b7 java-main open-jdk-like-jre=1.8.0_111 open-jdk-like-memory-calculator=2.0.2_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
@@ -621,7 +621,7 @@ Before we deploy to cloud foundry there are a few things that need to occur.
              state     since                    cpu    memory       disk         details
         #0   running   2017-02-13 04:42:12 PM   0.0%   287M of 1G   165M of 1G
 
-11. Open a browser and go to the URL indicated in the urls: line above, with "/persons" appended to the end of it. In this case the url is <https://spring-person-heterochromatic-eelgrass.app.cloud.rick-ross.com/persons>
+11. Open a browser and go to the URL indicated in the urls: line above, with "/persons" appended to the end of it. In this case the url is <https://spring-person-heterochromatic-eelgrass.cfapps.haas-99.pez.pivotal.io/persons>
 
     ![running on pcf](images/running-on-pcf.png)
 
