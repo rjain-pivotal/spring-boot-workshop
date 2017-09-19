@@ -477,7 +477,7 @@ Before we deploy to cloud foundry there are a few things that need to occur.
 
 2.  Set the API target for the CLI: (this information will be provided to you in the workshop)
 
-        $ cf api https://api.run.haas-85.pez.pivotal.io --skip-ssl-validation
+        $ cf api https://api.run.haas-112.pez.pivotal.io --skip-ssl-validation
 
 3.  Login to Pivotal Cloudfoundry:
 
@@ -527,22 +527,24 @@ Before we deploy to cloud foundry there are a few things that need to occur.
         Getting services from marketplace in org pivotal / space development as instructor...
         OK
 
-        service                       plans                     description
-        app-autoscaler                standard                  Scales bound applications in response to load (beta)
-        p-circuit-breaker-dashboard   standard                  Circuit Breaker Dashboard for Spring Cloud Applications
-        p-config-server               standard                  Config Server for Spring Cloud Applications
-        p-mysql                       100mb                     MySQL databases on demand
-        p-rabbitmq                    standard                  RabbitMQ is a robust and scalable high-performance multi-protocol messaging broker.
-        p-redis                       shared-vm, dedicated-vm   Redis service to provide a key-value store
-        p-service-registry            standard                  Service Registry for Spring Cloud Applications
+        service          plans                     description
+        app-autoscaler   standard                  Scales bound applications in response to load
+        p-rabbitmq       standard                  RabbitMQ is a robust and scalable high-performance multi-protocol messaging broker.
+        p-redis          shared-vm, dedicated-vm   Redis service to provide pre-provisioned instances configured as a datastore, running on a shared or dedicated VM.
+        p.mysql          db-small, db-medium       Dedicated instances of MySQL
+        p.redis          cache-small               Redis service to provide on-demand dedicated instances configured as a cache.
+
 
         TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
 
-    Notice that there is a Redis service we can use. It is called "p-redis" and there are two plans: dedicated-vm and shared-vm.
+    Notice that there are two Redis service we can use. The p-redis is a pre-provisioned redis and the p.redis in On Demand Redis. If you use the p-redis, use the shared-vm plan. If you use "p.redis" use the plan: cache-small
 
-8.  Create a Redis service using the shared-vm plan
+8.  Create a Redis service using the cache-small plan
 
         $ cf create-service p-redis shared-vm SpringPersonRedis
+
+        ----- OR ------
+        $ cf create-service p.redis cache-small SpringPersonRedis
         OK
 
 9.  Bind the application to this service
@@ -613,7 +615,7 @@ Before we deploy to cloud foundry there are a few things that need to occur.
         requested state: started
         instances: 1/1
         usage: 1G x 1 instances
-        urls: spring-person-heterochromatic-eelgrass.haas-85.pez.pivotal.io
+        urls: spring-person-heterochromatic-eelgrass.haas-112.pez.pivotal.io
         last uploaded: Mon Feb 13 21:41:03 UTC 2017
         stack: cflinuxfs2
         buildpack: java-buildpack=v3.10-offline-https://github.com/cloudfoundry/java-buildpack.git#193d6b7 java-main open-jdk-like-jre=1.8.0_111 open-jdk-like-memory-calculator=2.0.2_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
@@ -621,7 +623,7 @@ Before we deploy to cloud foundry there are a few things that need to occur.
              state     since                    cpu    memory       disk         details
         #0   running   2017-02-13 04:42:12 PM   0.0%   287M of 1G   165M of 1G
 
-11. Open a browser and go to the URL indicated in the urls: line above, with "/persons" appended to the end of it. In this case the url is <https://spring-person-heterochromatic-eelgrass.cfapps.haas-85.pez.pivotal.io/persons>
+11. Open a browser and go to the URL indicated in the urls: line above, with "/persons" appended to the end of it. In this case the url is <https://spring-person-heterochromatic-eelgrass.cfapps.haas-112.pez.pivotal.io/persons>
 
     ![running on pcf](images/running-on-pcf.png)
 
